@@ -27,6 +27,13 @@ import time
 import urllib.request
 from pathlib import Path
 
+# Memastikan output stdout UTF-8 pada terminal Windows
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -173,7 +180,7 @@ def train_and_evaluate_scope(scope_name: str, df_scope: pd.DataFrame):
     M3: Threshold-Optimized (Menggunakan M2 dengan ambang probabilitas optimal)
     """
     print(f"\n=======================================================")
-    print(f"▶ Memproses Scope: {scope_name.upper()} WINE (N = {len(df_scope):,})")
+    print(f"[>] Memproses Scope: {scope_name.upper()} WINE (N = {len(df_scope):,})")
     print(f"=======================================================")
 
     X = df_scope[FEATURES]
@@ -186,8 +193,8 @@ def train_and_evaluate_scope(scope_name: str, df_scope: pd.DataFrame):
 
     n_pos_train = int(y_train.sum())
     n_pos_test = int(y_test.sum())
-    print(f"  • Data Latihan (80%): {len(X_train):,} baris ({n_pos_train} Premium = {n_pos_train/len(X_train)*100:.1f}%)")
-    print(f"  • Data Uji (20%)    : {len(X_test):,} baris ({n_pos_test} Premium = {n_pos_test/len(X_test)*100:.1f}%)")
+    print(f"  * Data Latihan (80%): {len(X_train):,} baris ({n_pos_train} Premium = {n_pos_train/len(X_train)*100:.1f}%)")
+    print(f"  * Data Uji (20%)    : {len(X_test):,} baris ({n_pos_test} Premium = {n_pos_test/len(X_test)*100:.1f}%)")
 
     # Inisialisasi Model
     m1_baseline = RandomForestClassifier(
@@ -202,7 +209,7 @@ def train_and_evaluate_scope(scope_name: str, df_scope: pd.DataFrame):
         n_jobs=-1,
     )
 
-    print("  • Melatih Model M1 (Baseline 200 Trees) & M2 (Cost-Sensitive 300 Trees)...")
+    print("  * Melatih Model M1 (Baseline 200 Trees) & M2 (Cost-Sensitive 300 Trees)...")
     m1_baseline.fit(X_train, y_train)
     m2_tuned.fit(X_train, y_train)
 
@@ -212,7 +219,7 @@ def train_and_evaluate_scope(scope_name: str, df_scope: pd.DataFrame):
 
     # Optimasi threshold M3 pada OOF training set
     opt_threshold, oof_f1 = optimize_threshold_oof(m2_tuned, X_train, y_train, seed=SEED)
-    print(f"  • Optimalisasi OOF Threshold (M3): Cutoff terbaik = {opt_threshold:.2f} (OOF F1 = {oof_f1:.4f})")
+    print(f"  * Optimalisasi OOF Threshold (M3): Cutoff terbaik = {opt_threshold:.2f} (OOF F1 = {oof_f1:.4f})")
 
     models_config = [
         ("M1_Baseline", 0.50, proba_m1),
@@ -254,7 +261,7 @@ def train_and_evaluate_scope(scope_name: str, df_scope: pd.DataFrame):
         print(f"    [{m_name:18s}] Acc: {acc*100:5.2f}% | Prec: {prec*100:5.2f}% | Rec: {rec*100:5.2f}% | F1: {f1:.4f} | AUC: {auc:.4f}")
 
     # Feature Importance (Gini dari data latihan & Permutation dari data test)
-    print("  • Menghitung Permutation Feature Importance (10 repetisi)...")
+    print("  * Menghitung Permutation Feature Importance (10 repetisi)...")
     perm = permutation_importance(
         m2_tuned, X_test, y_test, scoring="roc_auc", n_repeats=PERMUTATION_REPEATS, random_state=SEED, n_jobs=-1
     )
@@ -432,11 +439,14 @@ def plot_publication_dashboard(artifacts_all: dict, output_filepath: str = "wine
     plt.savefig(output_filepath, dpi=300, bbox_inches="tight", facecolor="white")
     print(f"[+] Dashboard visualisasi berhasil disimpan di: {output_filepath}")
 
-    # Tampilkan jika di Colab/Jupyter
+    # Tampilkan jika di Colab/Jupyter, jika terminal simpan dan tutup agar tidak memblokir
     try:
-        plt.show()
+        if "ipykernel" in sys.modules or "google.colab" in sys.modules:
+            plt.show()
+        else:
+            plt.close(fig)
     except Exception:
-        pass
+        plt.close(fig)
 
 
 # ==============================================================================
@@ -452,11 +462,11 @@ def main():
     # 1. Muat Dataset
     df = load_dataset()
     print(f"\n[1] Dataset Berhasil Dimuat:")
-    print(f"    • Total Baris (N) : {len(df):,}")
-    print(f"    • Red Wine        : {len(df[df['wine_type'] == 0]):,} baris")
-    print(f"    • White Wine      : {len(df[df['wine_type'] == 1]):,} baris")
-    print(f"    • Nilai Kosong/NaN: {df.isna().sum().sum()}")
-    print(f"    • Proporsi Premium: {df['high_quality'].sum():,} baris ({df['high_quality'].mean()*100:.2f}%)")
+    print(f"    * Total Baris (N) : {len(df):,}")
+    print(f"    * Red Wine        : {len(df[df['wine_type'] == 0]):,} baris")
+    print(f"    * White Wine      : {len(df[df['wine_type'] == 1]):,} baris")
+    print(f"    * Nilai Kosong/NaN: {df.isna().sum().sum()}")
+    print(f"    * Proporsi Premium: {df['high_quality'].sum():,} baris ({df['high_quality'].mean()*100:.2f}%)")
 
     # 2. Definisikan 3 Scope Populasi
     scopes = {
@@ -498,7 +508,7 @@ def main():
     print("=" * 80)
     for s in ["Combined", "Red", "White"]:
         top5 = df_importance[df_importance["scope"] == s].head(5)
-        print(f"\n▶ Scope {s} Wine:")
+        print(f"\n[>] Scope {s} Wine:")
         for _, r in top5.iterrows():
             print(f"   #{r['rank']} {r['feature']:22s} | Gini: {r['gini_importance']:.4f} | Permutation Drop: {r['perm_importance_mean']:.4f}")
 
@@ -512,7 +522,7 @@ def main():
     plot_publication_dashboard(artifacts_all, "wine_random_forest_dashboard.png")
 
     elapsed = time.perf_counter() - start_time
-    print(f"\n[✔] Seluruh pipeline selesai dalam {elapsed:.1f} detik!")
+    print(f"\n[OK] Seluruh pipeline selesai dalam {elapsed:.1f} detik!")
     print("=" * 80)
 
 
