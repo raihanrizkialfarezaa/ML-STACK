@@ -66,7 +66,7 @@ export default function SinglePageMonograph() {
 
           {/* Subtitle */}
           <p className="mt-6 max-w-3xl text-sm sm:text-base leading-relaxed text-neutral-400 font-sans">
-            Kajian mendalam teori dasar, formulasi matematika, mekanisme algoritma <em>Bagging Ensemble</em>, bedah perhitungan angka langkah-demi-langkah, hingga mitigasi jebakan statistik pada dataset fisikokimia <strong>UCI Wine Quality (N = 6.497)</strong>. Dirancang komprehensif agar dapat dipahami secara intuitif oleh orang awam sekaligus memenuhi standar ketat verifikasi sains data.
+            Kajian mendalam teori dasar, formulasi matematika, mekanisme algoritma <em>Bagging Ensemble</em>, bedah perhitungan angka langkah-demi-langkah, hingga mitigasi jebakan statistik pada dataset fisikokimia <strong>UCI Wine Quality (6.497 baris mentah; 5.320 setelah deduplikasi)</strong>. Dirancang komprehensif agar dapat dipahami secara intuitif oleh orang awam sekaligus tetap transparan terhadap batas evaluasi.
           </p>
 
           {/* Key Metric Strips */}
@@ -79,8 +79,8 @@ export default function SinglePageMonograph() {
 
             <div className="bg-black p-4">
               <div className="font-mono text-xs text-neutral-500">FITUR FISIKOKIMIA</div>
-              <div className="mt-1 font-mono text-2xl font-bold text-white">11 Zat</div>
-              <div className="text-[11px] text-neutral-500 mt-0.5">0 Nilai Kosong (Imputasi 0%)</div>
+              <div className="mt-1 font-mono text-2xl font-bold text-white">11 + 1 Fitur</div>
+              <div className="text-[11px] text-neutral-500 mt-0.5">Kimia + Wine Type Code pada Combined</div>
             </div>
 
             <div className="bg-black p-4">
@@ -91,8 +91,8 @@ export default function SinglePageMonograph() {
 
             <div className="bg-black p-4">
               <div className="font-mono text-xs text-neutral-500">PUNCAK ROC-AUC</div>
-              <div className="mt-1 font-mono text-2xl font-bold text-white">0.952</div>
-              <div className="text-[11px] text-neutral-500 mt-0.5">Red Wine Holdout Test</div>
+              <div className="mt-1 font-mono text-2xl font-bold text-white">0.877</div>
+              <div className="text-[11px] text-neutral-500 mt-0.5">Combined M2/M3 Holdout Test</div>
             </div>
           </div>
 
@@ -401,8 +401,8 @@ export default function SinglePageMonograph() {
                   ⚠️ Jebakan Ilusi Akurasi (The Accuracy Paradox):
                 </div>
                 <p>
-                  Perhatikan angka pada <strong>Red Wine</strong>: hanya 217 botol dari 1.599 yang berkualitas premium (<strong>13.57%</strong>).
-                  Jika seorang pembuat model pemalas membuat program sederhana yang selalu mencetak <em>&quot;Semua botol adalah wine biasa (0)!&quot;</em> tanpa memeriksa zat kimianya sama sekali, program tersebut sudah memperoleh <strong>Akurasi 86.43%</strong>!
+                  Perhatikan angka pada <strong>Red Wine setelah deduplikasi</strong>: hanya 184 botol dari 1.359 yang berkualitas premium (<strong>13.54%</strong>).
+                  Jika seorang pembuat model pemalas membuat program sederhana yang selalu mencetak <em>&quot;Semua botol adalah wine biasa (0)!&quot;</em> tanpa memeriksa zat kimianya sama sekali, program tersebut akan tampak memiliki akurasi tinggi karena kelas premium adalah minoritas.
                 </p>
                 <p>
                   Namun bagi pemilik kilang anggur, model pemalas itu sama sekali tidak berguna karena ia gagal mendeteksi satupun (0%) botol premium yang bernilai jual tinggi. Itulah alasan mengapa dalam penugasan machine learning profesional, <strong>Akurasi bukanlah metrik utama</strong>; kita wajib mengevaluasi <strong>Precision, Recall, F1-Score, dan ROC-AUC</strong>.
@@ -482,7 +482,7 @@ export default function SinglePageMonograph() {
               </div>
 
               <p className="text-xs text-neutral-400 leading-relaxed">
-                <strong>Alasan Mempertahankan Baris Ini:</strong> Dalam protokol benchmark standar sains data Cortez et al. (2009), keseluruhan korpus 6.497 baris digunakan untuk menjamin replikasi hasil eksperimen yang identik di seluruh dunia. Baris duplikat ini mencerminkan sampel dari kelompok tangki fermentasi yang sama.
+                <strong>Keputusan pipeline:</strong> Duplikat eksak dihapus sebelum pembentukan target dan pembagian train/test. Dengan begitu, baris identik tidak tersebar di dua partisi dan tidak membuat evaluasi terlihat lebih baik dari yang semestinya. Angka duplikat di atas tetap dilaporkan agar audit terhadap data mentah dapat direplikasi.
               </p>
             </div>
 
@@ -863,7 +863,7 @@ export default function SinglePageMonograph() {
                       B. Batasan Pertanyaan (Feature Subspace)
                     </div>
                     <p className="text-neutral-400">
-                      Di setiap persimpangan ranting, pohon tidak boleh melihat seluruh 11 zat kimia sekaligus. Pohon hanya boleh memilih dari <MathView math="\sqrt{11} \approx 3" /> zat acak. Pohon 1 mengecek alkohol &amp; sulfat; Pohon 2 mengecek densitas &amp; gula. Tidak ada satu zat pun yang bisa mendikte seluruh hutan.
+                      Di setiap persimpangan ranting, pohon tidak boleh melihat seluruh fitur sekaligus. Pada scope Red/White, fitur yang tersedia adalah 11 zat kimia sehingga kandidat acaknya sekitar <MathView math="\sqrt{11} \approx 3" /> fitur. Combined menambahkan satu fitur kategorikal, yaitu <code>wine_type_code</code>. Tidak ada satu fitur pun yang boleh dianggap sebagai sebab tunggal kualitas.
                     </p>
                   </div>
                 </div>
@@ -994,7 +994,7 @@ export default function SinglePageMonograph() {
               <div className="space-y-3 text-xs leading-relaxed text-neutral-300">
                 <p>
                   Apakah skor probabilitas 72.0% sudah cukup untuk melabeli botol ini sebagai produk premium?
-                  Sistem komputer membandingkan nilai <MathView math="\hat{p} = 0.7200" /> dengan <strong>Ambang Batas Optimal</strong> yang telah dikalibrasi pada model M3 Red Wine (<MathView math="\theta^* = 0.32" />):
+                  Sistem komputer membandingkan nilai <MathView math="\hat{p} = 0.7200" /> dengan <strong>Ambang Batas Optimal</strong> yang telah dikalibrasi pada model M3 Red Wine (<MathView math="\theta^* = 0.31" />):
                 </p>
 
                 <div className="my-2 rounded border border-neutral-800 bg-black p-3.5 text-center font-mono text-sm">
@@ -1003,7 +1003,7 @@ export default function SinglePageMonograph() {
 
                 <div className="my-2">
                   <MathView
-                    math={`0.7200 \\ge 0.3200 \\implies \\mathbf{\\hat{y} = 1 \\quad (PREMIUM)}`}
+                    math={`0.7200 \\ge 0.3100 \\implies \\mathbf{\\hat{y} = 1 \\quad (PREMIUM)}`}
                     block={true}
                   />
                 </div>
@@ -1037,82 +1037,82 @@ export default function SinglePageMonograph() {
                   </div>
 
                   <div className="border-t border-neutral-900 pt-3 text-neutral-400 font-sans text-xs leading-relaxed">
-                    📝 <strong>Penjelasan Enologi kepada Pemilik Pabrik:</strong> Botol #42 dinyatakan Premium karena memiliki alkohol matang sempurna (11.8%) yang memberikan sensasi rasa tebal dan hangat, dipadukan dengan asam asetat yang sangat rendah (0.32 g/dm³) sehingga wine bersih dari aroma cuka, serta dilindungi sulfat optimal (0.73 g/dm³) yang menjamin warna merah cerah bertahan bertahun-tahun di dalam botol. Botol ini layak dijual dengan harga premium bintang lima.
+                    📝 <strong>Catatan interpretasi:</strong> Contoh ini hanya menunjukkan cara membaca probabilitas model. Nilai alkohol, keasaman, dan sulfat tidak boleh diterjemahkan sebagai aturan kausal atau jaminan harga premium; keputusan produksi tetap memerlukan validasi enologi dan bisnis terpisah.
                   </div>
                 </div>
               </div>
             </div>
 
             {/* -------------------------------------------------------------- */}
-            {/* TAHAP 6: EVALUASI KEJUJURAN MODEL PADA 320 DATA UJI */}
+            {/* TAHAP 6: EVALUASI KEJUJURAN MODEL PADA DATA UJI RED */}
             {/* -------------------------------------------------------------- */}
             <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
               <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
                 <h3 className="text-base font-semibold text-white">
-                  Tahap 6: Bagaimana Kita Menguji Kejujuran Model pada 320 Botol Data Uji?
+                  Tahap 6: Bagaimana Kita Menguji Kejujuran Model pada 272 Botol Red Wine?
                 </h3>
                 <span className="font-mono text-xs text-neutral-500">Evaluasi Metrik Riil</span>
               </div>
 
               <p className="text-xs text-neutral-400 mb-4">
-                Setelah model selesai dilatih, kita mengujinya pada <strong>320 botol Red Wine baru</strong> yang belum pernah disentuh sama sekali selama pelatihan. Hasilnya dirangkum dalam Matriks Kebingungan (*Confusion Matrix*):
+                Untuk contoh yang konkret, kita menguji M3 pada <strong>272 botol Red Wine</strong> yang tidak dipakai selama pelatihan maupun tuning threshold. Hasilnya dirangkum dalam Matriks Kebingungan (*Confusion Matrix*):
               </p>
 
               <div className="my-4 grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-center text-xs">
                 <div className="rounded border border-neutral-800 bg-black p-3">
                   <div className="text-neutral-500">True Negative (TN)</div>
-                  <div className="text-xl font-bold text-white mt-1">275</div>
+                  <div className="text-xl font-bold text-white mt-1">216</div>
                   <div className="text-[10px] text-neutral-500">Reguler ditebak reguler (Benar)</div>
                 </div>
                 <div className="rounded border border-neutral-800 bg-black p-3">
                   <div className="text-neutral-500">False Positive (FP)</div>
-                  <div className="text-xl font-bold text-white mt-1">2</div>
+                  <div className="text-xl font-bold text-white mt-1">19</div>
                   <div className="text-[10px] text-neutral-500">Reguler dikira premium (Alarm Palsu)</div>
                 </div>
                 <div className="rounded border border-neutral-800 bg-black p-3">
                   <div className="text-neutral-500">False Negative (FN)</div>
-                  <div className="text-xl font-bold text-white mt-1">16</div>
+                  <div className="text-xl font-bold text-white mt-1">18</div>
                   <div className="text-[10px] text-neutral-500">Premium terlewat (Lolos)</div>
                 </div>
                 <div className="rounded border border-neutral-800 bg-black p-3">
                   <div className="text-neutral-500">True Positive (TP)</div>
-                  <div className="text-xl font-bold text-white mt-1">27</div>
+                  <div className="text-xl font-bold text-white mt-1">19</div>
                   <div className="text-[10px] text-neutral-500">Premium tertangkap (Sukses)</div>
                 </div>
               </div>
 
               <div className="space-y-4 my-5 font-mono text-xs text-neutral-300">
                 <div className="rounded bg-black p-3.5 border border-neutral-900">
-                  <div className="text-white font-bold mb-1">1. Presisi (Precision) Kelas Premium: 93.10%</div>
-                  <MathView math={`\\text{Precision} = \\frac{TP}{TP + FP} = \\frac{27}{27 + 2} = \\frac{27}{29} = \\mathbf{93.10\\%}`} />
+                  <div className="text-white font-bold mb-1">1. Presisi (Precision) Kelas Premium: 50.00%</div>
+                  <MathView math={`\\text{Precision} = \\frac{TP}{TP + FP} = \\frac{19}{19 + 18} = \\frac{19}{37} = \\mathbf{50.00\\%}`} />
                   <div className="font-sans text-[11px] text-neutral-400 mt-1">
-                    Arti Praktis: Ketika model berani berkata <em>&quot;Botol ini adalah Premium!&quot;</em>, ada <strong>93.1% kepastian bahwa botol itu memang benar-benar enak</strong>. Hanya 2 botol biasa yang salah dilabeli premium.
+                    Arti Praktis: Dari 37 botol yang ditandai model sebagai Premium, 19 benar-benar termasuk kelas Premium pada data uji ini. Angka ini menunjukkan trade-off recall yang lebih tinggi setelah threshold diturunkan.
                   </div>
                 </div>
 
                 <div className="rounded bg-black p-3.5 border border-neutral-900">
-                  <div className="text-white font-bold mb-1">2. Recall (Sensitivitas Tangkapan): 62.79%</div>
-                  <MathView math={`\\text{Recall} = \\frac{TP}{TP + FN} = \\frac{27}{27 + 16} = \\frac{27}{43} = \\mathbf{62.79\\%}`} />
+                  <div className="text-white font-bold mb-1">2. Recall (Sensitivitas Tangkapan): 51.35%</div>
+                  <MathView math={`\\text{Recall} = \\frac{TP}{TP + FN} = \\frac{19}{19 + 18} = \\frac{19}{37} = \\mathbf{51.35\\%}`} />
                   <div className="font-sans text-[11px] text-neutral-400 mt-1">
-                    Arti Praktis: Dari total 43 botol premium langka yang tersebar di kebun, model berhasil menyaring 27 botol (hampir 2 dari 3 botol premium berhasil diselamatkan).
+                    Arti Praktis: Dari 37 botol Premium yang benar-benar ada di data uji Red, model menangkap 19 botol. Hasil ini adalah estimasi pada satu holdout split, bukan jaminan untuk semua produksi.
                   </div>
                 </div>
 
                 <div className="rounded bg-black p-4 border border-neutral-900">
                   <div className="text-white font-bold mb-1">
-                    3. Mengapa Wajib Rata-Rata Harmonik (F1-Score = 0.7500)?
+                    3. Mengapa Wajib Rata-Rata Harmonik (F1-Score = 0.5067)?
                   </div>
                   <p className="font-sans text-xs text-neutral-300 leading-relaxed mb-2">
-                    Jika kita memakai rata-rata sekolah biasa (aritmatika): (93.10% + 62.79%) / 2 = 77.95%.
+                    Jika kita memakai rata-rata sekolah biasa (aritmatika), precision dan recall dapat terlihat lebih tinggi daripada keseimbangan yang benar-benar dicapai.
                     Namun di bidang data science, jika model hanya menebak 1 botol premium seumur hidupnya, presisinya bisa saja 100% padahal recall-nya 1%. Rata-rata aritmatika bisa menipu.
                     Oleh sebab itu digunakan <strong>Rata-Rata Harmonik (F1-Score)</strong>:
                   </p>
                   <MathView
-                    math={`F_1 = 2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}} = 2 \\times \\frac{0.9310 \\times 0.6279}{0.9310 + 0.6279} = \\mathbf{0.7500}`}
+                    math={`F_1 = 2 \\times \\frac{\\text{Precision} \\times \\text{Recall}}{\\text{Precision} + \\text{Recall}} = 2 \\times \\frac{0.5000 \\times 0.5135}{0.5000 + 0.5135} = \\mathbf{0.5067}`}
                     block={true}
                   />
                   <div className="font-sans text-[11px] text-neutral-400 mt-1">
-                    Skor F1 sebesar <strong>0.7500</strong> membuktikan bahwa Random Forest mencapai keseimbangan harmonis antara ketajaman mengenali wine langka dan kejujuran tanpa banyak alarm palsu.
+                    Skor F1 sebesar <strong>0.5067</strong> menunjukkan keseimbangan precision–recall yang sedang; threshold tuning membantu recall, tetapi juga menambah false positive.
                   </div>
                 </div>
               </div>
@@ -1126,7 +1126,7 @@ export default function SinglePageMonograph() {
                 <h3 className="text-base font-semibold text-white">
                   Tahap 7: Rahasia Lonjakan Recall Model M3 Melalui Out-of-Fold Tuning
                 </h3>
-                <span className="font-mono text-xs text-neutral-500">Ambang Batas 0.32</span>
+                <span className="font-mono text-xs text-neutral-500">Ambang Berbeda per Scope</span>
               </div>
 
               <p className="text-xs text-neutral-400 mb-3">
@@ -1154,11 +1154,11 @@ export default function SinglePageMonograph() {
                       <td className="py-2 px-3 text-neutral-500">Terlalu pelit, separuh botol premium terbuang</td>
                     </tr>
                     <tr className="bg-neutral-900 text-white font-bold">
-                      <td className="py-2 px-3 text-white">0.32 (Optimal Model M3)</td>
-                      <td className="py-2 px-3">51.8%</td>
-                      <td className="py-2 px-3">70.1%</td>
-                      <td className="py-2 px-3 text-white">0.5947</td>
-                      <td className="py-2 px-3 text-white">TITIK EMAS: F1-Score Paling Maksimal</td>
+                      <td className="py-2 px-3 text-white">0.33 / 0.31 / 0.30 (M3)</td>
+                      <td className="py-2 px-3">57.92% / 50.00% / 53.64%</td>
+                      <td className="py-2 px-3">63.37% / 51.35% / 71.52%</td>
+                      <td className="py-2 px-3 text-white">0.6052 / 0.5067 / 0.6130</td>
+                      <td className="py-2 px-3 text-white">Combined / Red / White</td>
                     </tr>
                     <tr>
                       <td className="py-2 px-3">0.20 (Terlalu Rendah)</td>
@@ -1172,8 +1172,7 @@ export default function SinglePageMonograph() {
               </div>
 
               <div className="font-sans text-xs text-neutral-300 pt-2">
-                🎯 <strong>Hasil Spektakuler pada Data Uji Holdout:</strong> Saat ambang optimal <MathView math="\theta^* = 0.32" /> diterapkan pada data uji holdout Red Wine, <strong>Recall melonjak drastis dari 62.79% menjadi 74.42%</strong>!
-                Artinya, hampir <strong>3 dari setiap 4 botol premium</strong> yang dipanen dari kebun berhasil diselamatkan dan dipasarkan sebagai produk bernilai tinggi.
+                🎯 <strong>Interpretasi yang lebih jujur:</strong> M3 memilih threshold dari OOF pada data latih, yaitu <MathView math="\theta^* = 0.33, 0.31, 0.30" /> untuk Combined, Red, dan White. Pada holdout, White memiliki recall tertinggi (71.52%), tetapi precision turun menjadi 53.64%. Tidak ada satu threshold yang otomatis terbaik untuk semua tujuan bisnis.
               </div>
             </div>
           </div>
@@ -1227,7 +1226,7 @@ export default function SinglePageMonograph() {
                       </td>
                       <td className="py-2.5 px-3 text-neutral-300 font-sans">
                         {row.model === "M1_Baseline"
-                          ? "M1: Baseline (200 Trees)"
+                          ? "M1: Baseline (300 Trees)"
                           : row.model === "M2_Tuned_CostSensitive"
                           ? "M2: Cost-Sensitive (300 Trees)"
                           : "M3: Threshold-Optimized (OOF)"}
@@ -1249,13 +1248,13 @@ export default function SinglePageMonograph() {
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="rounded border border-neutral-800 bg-neutral-950 p-4">
               <div className="font-mono text-xs text-neutral-500 uppercase tracking-wider mb-1">
-                Temuan 1: Puncak ROC-AUC Red Wine
+                Temuan 1: ROC-AUC Holdout Tertinggi
               </div>
               <h4 className="font-semibold text-white text-sm mb-2">
-                Red Wine Mencapai ROC-AUC 0.9519
+                Combined dan Red Berada di Sekitar 0.88
               </h4>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Kemampuan pemisahan diskriminatif pada Red Wine sangat superior (AUC &gt; 0.95). Artinya, jika kita mengambil 1 botol premium acak dan 1 botol reguler acak, terdapat peluang 95.19% model memberi skor probabilitas lebih tinggi pada botol premium tersebut.
+                Pada holdout, ROC-AUC M3 adalah 0.8770 untuk Combined dan 0.8761 untuk Red; White berada di 0.8595. Ini menunjukkan ranking probabilitas cukup informatif, tetapi belum berarti model siap dipakai tanpa validasi tambahan.
               </p>
             </div>
 
@@ -1264,10 +1263,10 @@ export default function SinglePageMonograph() {
                 Temuan 2: Lonjakan Recall di Model M3
               </div>
               <h4 className="font-semibold text-white text-sm mb-2">
-                White Wine Recall Capai 78.30%
+                White Wine Recall Capai 71.52%
               </h4>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Pada White Wine, penyesuaian threshold dari 0.50 ke 0.43 (M3) melesatkan metrik Recall dari 62.74% menjadi <strong>78.30%</strong>. Model berhasil mengidentifikasi 166 dari 212 botol premium di data uji holdout, menaikkan F1-score menjadi 0.7580.
+                Pada White Wine, threshold OOF 0.30 menghasilkan recall <strong>71.52%</strong> dan F1 0.6130 pada 793 data uji, dengan 118 dari 165 botol Premium tertangkap.
               </p>
             </div>
 
@@ -1288,7 +1287,7 @@ export default function SinglePageMonograph() {
           <div className="mt-8 rounded border border-neutral-800 bg-neutral-950 p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-base font-semibold text-white">
-                Peringkat Zat Kimia Penentu Kualitas (Dual Feature Importance)
+                Peringkat Top 5 Zat Kimia (Dual Feature Importance)
               </h3>
               <div className="flex gap-1 bg-black p-1 rounded border border-neutral-800 font-mono text-xs">
                 {(["Combined", "Red", "White"] as const).map((s) => (
@@ -1367,8 +1366,8 @@ export default function SinglePageMonograph() {
           <div className="mt-8 rounded border border-neutral-800 bg-neutral-950 p-2 sm:p-4 overflow-hidden">
             <div className="relative w-full aspect-[18/13] bg-black rounded overflow-hidden">
               <Image
-                src="/wine_random_forest_dashboard.png"
-                alt="Dashboard Publikasi 4-Panel Random Forest Wine Quality"
+                src="/wine_hybrid_dashboard.png"
+                alt="Dashboard Publikasi 4-Panel Random Forest Wine Quality dari notebook utama"
                 fill
                 className="object-contain"
                 priority
@@ -1377,11 +1376,11 @@ export default function SinglePageMonograph() {
 
             <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-neutral-900 text-xs">
               <div className="text-neutral-400 font-mono">
-                File: <span className="text-white">wine_random_forest_dashboard.png</span> (650 KB, 300 DPI)
+                File: <span className="text-white">wine_hybrid_dashboard.png</span> (output notebook utama)
               </div>
               <a
-                href="/wine_random_forest_dashboard.png"
-                download="wine_random_forest_dashboard.png"
+                href="/wine_hybrid_dashboard.png"
+                download="wine_hybrid_dashboard.png"
                 className="flex items-center gap-1.5 rounded border border-neutral-700 bg-neutral-900 px-3.5 py-1.5 font-mono text-xs text-white hover:bg-white hover:text-black hover:border-white transition-all"
               >
                 <Download className="h-3.5 w-3.5" />
@@ -1397,7 +1396,7 @@ export default function SinglePageMonograph() {
                 Panel A: Grouped Bar Feature Importance
               </div>
               <p>
-                Menampilkan perbandingan bobot kepentingan 11 zat kimia di 3 scope (Combined, Red, White). Terlihat jelas bagaimana <em>Alcohol</em> menjadi pemuncak mutlak di seluruh scope, disusul peran spesifik <em>Sulphates</em> yang sangat tinggi di Red Wine dan <em>Density</em> di White Wine.
+                Menampilkan perbandingan bobot kepentingan fitur di 3 scope (Combined, Red, White). Combined juga memakai <em>Wine Type Code</em>; Red dan White hanya memakai 11 fitur kimia. Terlihat jelas bagaimana <em>Alcohol</em> menjadi pemuncak di seluruh scope.
               </p>
             </div>
 
@@ -1406,7 +1405,7 @@ export default function SinglePageMonograph() {
                 Panel B: Kurva ROC-AUC Multi-Line
               </div>
               <p>
-                Memplot rasio True Positive Rate terhadap False Positive Rate pada seluruh spektrum ambang batas probabilitas. Garis lengkung yang menempel ke pojok kiri atas membuktikan keunggulan diskriminasi model (Red Wine AUC = 0.952, White Wine AUC = 0.928).
+                Memplot rasio True Positive Rate terhadap False Positive Rate pada seluruh spektrum ambang batas probabilitas. Pada output terbaru, ROC-AUC M3 adalah 0.8770 (Combined), 0.8761 (Red), dan 0.8595 (White).
               </p>
             </div>
 
@@ -1424,7 +1423,7 @@ export default function SinglePageMonograph() {
                 Panel D: Komparasi F1-Score Lintas Model
               </div>
               <p>
-                Menunjukkan efek langsung optimasi threshold OOF (M3) yang berhasil mengerek F1-score pada White Wine hingga menyentuh 0.758, menyeimbangkan presisi dan kelengkapan tangkapan botol premium.
+                Menunjukkan efek optimasi threshold OOF (M3): F1 menjadi 0.6052 (Combined), 0.5067 (Red), dan 0.6130 (White). Kenaikan recall selalu perlu dibaca bersama penurunan specificity/precision.
               </p>
             </div>
           </div>
@@ -1572,7 +1571,7 @@ UCI_URLS = {
                   <div className="font-bold text-white mb-1">🔍 Bedah Makna &amp; Alasan di Balik Baris Kode:</div>
                   <ul className="list-disc list-inside space-y-1.5 text-neutral-300">
                     <li>
-                      <code className="text-white">SEED = 42</code>: Angka sakti generator angka acak (*pseudo-random generator*). Dalam Random Forest terjadi banyak pengacakan (pemilihan baris bootstrap dan fitur cabang). Mengunci benih ke 42 memastikan siapapun yang menjalankan skrip ini di Colab atau laptop sendiri akan memperoleh akurasi, F1, dan ROC-AUC yang sama persis hingga digit desimal terakhir.
+                      <code className="text-white">SEED = 42</code>: Benih generator angka acak dikunci agar hasil dapat direproduksi pada kode, versi library, dan lingkungan yang sama. Ini membantu konsistensi eksperimen, tetapi tidak menjamin digit identik di semua platform atau versi dependensi.
                     </li>
                     <li>
                       <code className="text-white">TEST_SIZE = 0.20</code>: Pembagian proporsional 80% data untuk latihan belajar model (*training*) dan 20% dikunci rapat sebagai data ujian murni (*holdout test*).
@@ -1680,14 +1679,14 @@ X_train, X_test, y_train, y_test = train_test_split(
                 <div className="rounded bg-black p-3.5 border border-neutral-900">
                   <div className="font-bold text-white mb-1">🔍 Mengapa Parameter `stratify=y` adalah Harga Mati?</div>
                   <p className="text-neutral-300">
-                    Di Red Wine, kelas premium hanya berjumlah <strong>13.57% (217 botol)</strong>. Jika kita membagi data secara acak biasa tanpa stratifikasi, ada kemungkinan besar botol premium menumpuk di data latih sementara data uji hanya kebagian sedikit sampel premium.
+                    Di Red Wine setelah deduplikasi, kelas premium berjumlah <strong>184 dari 1.359 botol (13.54%)</strong>. Jika kita membagi data secara acak biasa tanpa stratifikasi, ada kemungkinan distribusi premium berbeda antara train dan test.
                   </p>
                   <p className="text-neutral-400 mt-1.5">
                     Dengan <code className="text-white">stratify=y</code>, scikit-learn menjamin rasio 13.57% terjaga persis sama:
                     <br />
-                    • Data Latih (80%): 174 botol premium dari total 1.279 botol (13.60%).
+                    • Data Latih (80%): 147 botol premium dari total 1.087 botol.
                     <br />
-                    • Data Uji (20%): 43 botol premium dari total 320 botol (13.44%).
+                    • Data Uji (20%): 37 botol premium dari total 272 botol.
                   </p>
                 </div>
               </div>
@@ -1708,20 +1707,18 @@ X_train, X_test, y_train, y_test = train_test_split(
               </div>
 
               <p className="text-xs text-neutral-400 mb-3">
-                Kami membangun dan membandingkan 3 tingkatan arsitektur Random Forest untuk membuktikan keunggulan teknik *cost-sensitive learning*:
+                Kami membangun dan membandingkan 3 varian Random Forest untuk melihat trade-off baseline, pembobotan kelas, dan threshold yang dioptimalkan:
               </p>
 
               <div className="rounded border border-neutral-800 bg-black p-4 font-mono text-xs text-neutral-300 overflow-x-auto my-3">
-                <pre><code>{`# Model 1: Baseline Default (200 Trees, Cutoff 0.50)
+                <pre><code>{`# Model 1: Baseline Default (300 Trees, Cutoff 0.50)
 m1_baseline = RandomForestClassifier(
-    n_estimators=200, random_state=SEED, n_jobs=-1
+    n_estimators=300, random_state=SEED, n_jobs=-1
 )
 
-# Model 2: Cost-Sensitive Tuned (300 Trees, class_weight='balanced_subsample')
+# Model 2: Cost-Sensitive (300 Trees, class_weight='balanced_subsample')
 m2_tuned = RandomForestClassifier(
     n_estimators=300,
-    max_depth=16,
-    min_samples_split=4,
     class_weight="balanced_subsample",  # Kunci penanganan data timpang tanpa SMOTE
     random_state=SEED,
     n_jobs=-1,
@@ -1740,10 +1737,7 @@ m2_tuned.fit(X_train, y_train)`}</code></pre>
                       <code className="text-white">n_estimators=300</code>: Memperbanyak juri pohon dari 200 menjadi 300 untuk memperhalus estimasi probabilitas dan memperkecil varians prediksi ensemble.
                     </li>
                     <li>
-                      <code className="text-white">max_depth=16</code> &amp; <code className="text-white">min_samples_split=4</code>: Memberikan batas kedalaman pohon agar tidak menghafal derau pencilan (*noise*), menjaga kemampuan generalisasi pada data baru.
-                    </li>
-                    <li>
-                      <code className="text-white">class_weight=&quot;balanced_subsample&quot;</code>: Inilah senjata rahasia paling penting! Berbeda dari <code>balanced</code> biasa yang menghitung bobot sekali di awal, <code>balanced_subsample</code> menghitung ulang bobot denda secara dinamis di setiap kantong bootstrap pohon masing-masing. Pohon otomatis dikenai penalti <strong>6.35x lebih berat</strong> jika salah menebak botol premium. Dengan cara ini, ketimpangan kelas teratasi secara matematis tanpa merusak integritas biokimia asli dengan data sintetis fiktif (SMOTE).
+                      <code className="text-white">class_weight=&quot;balanced_subsample&quot;</code>: bobot kelas dihitung ulang pada setiap bootstrap sehingga kesalahan pada kelas minoritas mendapat perhatian lebih besar. Dengan cara ini, ketimpangan kelas ditangani tanpa menambahkan data sintetis (SMOTE).
                     </li>
                     <li>
                       <code className="text-white">n_jobs=-1</code>: Memerintahkan komputer untuk menggunakan seluruh inti CPU (*multi-threading*) secara paralel, mempercepat proses latihan hingga 4x lipat.
@@ -1838,7 +1832,7 @@ fig, axes = plt.subplots(2, 2, figsize=(18, 13), facecolor="white")
 # Panel D: Perbandingan Barplot F1-Score
 
 # 3. Simpan dengan resolusi tinggi standar jurnal ilmiah (300 DPI)
-plt.savefig("wine_random_forest_dashboard.png", dpi=300, bbox_inches="tight")`}</code></pre>
+plt.savefig("wine_hybrid_dashboard.png", dpi=300, bbox_inches="tight")`}</code></pre>
               </div>
 
               <div className="space-y-3 text-xs">

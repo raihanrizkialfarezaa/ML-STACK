@@ -415,7 +415,7 @@
       "antecedent_support": 0.06724,
       "consequent_support": 0.455825,
       "support_test": 0.059375,
-      "confidence_test": 1.0,
+      "confidence_test": 1,
       "lift_test": 1.987578,
       "holdout_pass": 1,
       "rank": 1
@@ -1189,7 +1189,7 @@
       "share_train": 0.333419,
       "n_test": 375,
       "share_test": 0.375375,
-      "observed_min": 8.0,
+      "observed_min": 8,
       "observed_max": 9.7
     },
     {
@@ -1198,20 +1198,20 @@
       "feature": "alcohol",
       "bin": "Med",
       "lower_bound": 9.711111,
-      "upper_bound": 11.0,
+      "upper_bound": 11,
       "n_train": 1347,
       "share_train": 0.345473,
       "n_test": 315,
       "share_test": 0.315315,
       "observed_min": 9.733333,
-      "observed_max": 11.0
+      "observed_max": 11
     },
     {
       "scope": "Combined",
       "group": "White",
       "feature": "alcohol",
       "bin": "High",
-      "lower_bound": 11.0,
+      "lower_bound": 11,
       "upper_bound": "inf",
       "n_train": 1252,
       "share_train": 0.321108,
@@ -1478,20 +1478,20 @@
       "feature": "residual sugar",
       "bin": "Low",
       "lower_bound": "-inf",
-      "upper_bound": 2.0,
+      "upper_bound": 2,
       "n_train": 500,
       "share_train": 0.385208,
       "n_test": 120,
       "share_test": 0.398671,
       "observed_min": 0.9,
-      "observed_max": 2.0
+      "observed_max": 2
     },
     {
       "scope": "Combined",
       "group": "Red",
       "feature": "residual sugar",
       "bin": "Med",
-      "lower_bound": 2.0,
+      "lower_bound": 2,
       "upper_bound": 2.5,
       "n_train": 436,
       "share_train": 0.335901,
@@ -1534,20 +1534,20 @@
       "feature": "residual sugar",
       "bin": "Med",
       "lower_bound": 2.25,
-      "upper_bound": 8.0,
+      "upper_bound": 8,
       "n_train": 1317,
       "share_train": 0.337779,
       "n_test": 349,
       "share_test": 0.349349,
       "observed_min": 2.3,
-      "observed_max": 8.0
+      "observed_max": 8
     },
     {
       "scope": "Combined",
       "group": "White",
       "feature": "residual sugar",
       "bin": "High",
-      "lower_bound": 8.0,
+      "lower_bound": 8,
       "upper_bound": "inf",
       "n_train": 1281,
       "share_train": 0.328546,
@@ -1567,7 +1567,7 @@
       "share_train": 0.341294,
       "n_test": 120,
       "share_test": 0.398671,
-      "observed_min": 0.0,
+      "observed_min": 0,
       "observed_max": 0.17
     },
     {
@@ -1596,7 +1596,7 @@
       "n_test": 91,
       "share_test": 0.302326,
       "observed_min": 0.38,
-      "observed_max": 1.0
+      "observed_max": 1
     },
     {
       "scope": "Combined",
@@ -1609,7 +1609,7 @@
       "share_train": 0.338805,
       "n_test": 379,
       "share_test": 0.379379,
-      "observed_min": 0.0,
+      "observed_min": 0,
       "observed_max": 0.28
     },
     {
@@ -1722,7 +1722,7 @@
       "n_test": 98,
       "share_test": 0.30625,
       "observed_min": 0.69,
-      "observed_max": 2.0
+      "observed_max": 2
     },
     {
       "scope": "Red",
@@ -1777,7 +1777,7 @@
       "share_train": 0.341673,
       "n_test": 126,
       "share_test": 0.39375,
-      "observed_min": 0.0,
+      "observed_min": 0,
       "observed_max": 0.17
     },
     {
@@ -1806,7 +1806,7 @@
       "n_test": 100,
       "share_test": 0.3125,
       "observed_min": 0.38,
-      "observed_max": 1.0
+      "observed_max": 1
     },
     {
       "scope": "Red",
@@ -1814,41 +1814,41 @@
       "feature": "total sulfur dioxide",
       "bin": "Low",
       "lower_bound": "-inf",
-      "upper_bound": 26.0,
+      "upper_bound": 26,
       "n_train": 434,
       "share_train": 0.339328,
       "n_test": 100,
       "share_test": 0.3125,
-      "observed_min": 6.0,
-      "observed_max": 26.0
+      "observed_min": 6,
+      "observed_max": 26
     },
     {
       "scope": "Red",
       "group": "All",
       "feature": "total sulfur dioxide",
       "bin": "Med",
-      "lower_bound": 26.0,
-      "upper_bound": 51.0,
+      "lower_bound": 26,
+      "upper_bound": 51,
       "n_train": 421,
       "share_train": 0.329163,
       "n_test": 109,
       "share_test": 0.340625,
-      "observed_min": 27.0,
-      "observed_max": 51.0
+      "observed_min": 27,
+      "observed_max": 51
     },
     {
       "scope": "Red",
       "group": "All",
       "feature": "total sulfur dioxide",
       "bin": "High",
-      "lower_bound": 51.0,
+      "lower_bound": 51,
       "upper_bound": "inf",
       "n_train": 424,
       "share_train": 0.331509,
       "n_test": 111,
       "share_test": 0.346875,
-      "observed_min": 52.0,
-      "observed_max": 165.0
+      "observed_min": 52,
+      "observed_max": 165
     },
     {
       "scope": "Red",
@@ -1903,7 +1903,7 @@
       "share_train": 0.346095,
       "n_test": 319,
       "share_test": 0.32551,
-      "observed_min": 8.0,
+      "observed_min": 8,
       "observed_max": 9.7
     },
     {
@@ -1912,20 +1912,20 @@
       "feature": "alcohol",
       "bin": "Med",
       "lower_bound": 9.7,
-      "upper_bound": 11.0,
+      "upper_bound": 11,
       "n_train": 1314,
       "share_train": 0.335375,
       "n_test": 348,
       "share_test": 0.355102,
       "observed_min": 9.733333,
-      "observed_max": 11.0
+      "observed_max": 11
     },
     {
       "scope": "White",
       "group": "All",
       "feature": "alcohol",
       "bin": "High",
-      "lower_bound": 11.0,
+      "lower_bound": 11,
       "upper_bound": "inf",
       "n_train": 1248,
       "share_train": 0.31853,
@@ -2148,93 +2148,33 @@
   "confusion_matrices": [
     {
       "scope": "Combined",
-      "model": "M1_Baseline",
-      "threshold": 0.5,
-      "true_negative": 1009,
-      "false_positive": 35,
-      "false_negative": 110,
-      "true_positive": 146,
-      "n_test": 1300
-    },
-    {
-      "scope": "Combined",
-      "model": "M2_Tuned_CostSensitive",
-      "threshold": 0.5,
-      "true_negative": 992,
-      "false_positive": 52,
-      "false_negative": 94,
-      "true_positive": 162,
-      "n_test": 1300
-    },
-    {
-      "scope": "Combined",
       "model": "M3_ThresholdOptimized",
-      "threshold": 0.41,
-      "true_negative": 947,
-      "false_positive": 97,
-      "false_negative": 79,
-      "true_positive": 177,
-      "n_test": 1300
-    },
-    {
-      "scope": "Red",
-      "model": "M1_Baseline",
-      "threshold": 0.5,
-      "true_negative": 275,
-      "false_positive": 2,
-      "false_negative": 16,
-      "true_positive": 27,
-      "n_test": 320
-    },
-    {
-      "scope": "Red",
-      "model": "M2_Tuned_CostSensitive",
-      "threshold": 0.5,
-      "true_negative": 272,
-      "false_positive": 5,
-      "false_negative": 14,
-      "true_positive": 29,
-      "n_test": 320
+      "threshold": 0.33,
+      "true_negative": 769,
+      "false_positive": 93,
+      "false_negative": 74,
+      "true_positive": 128,
+      "n_test": 1064
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
-      "threshold": 0.32,
-      "true_negative": 263,
-      "false_positive": 14,
-      "false_negative": 11,
-      "true_positive": 32,
-      "n_test": 320
-    },
-    {
-      "scope": "White",
-      "model": "M1_Baseline",
-      "threshold": 0.5,
-      "true_negative": 740,
-      "false_positive": 28,
-      "false_negative": 79,
-      "true_positive": 133,
-      "n_test": 980
-    },
-    {
-      "scope": "White",
-      "model": "M2_Tuned_CostSensitive",
-      "threshold": 0.5,
-      "true_negative": 725,
-      "false_positive": 43,
-      "false_negative": 71,
-      "true_positive": 141,
-      "n_test": 980
+      "threshold": 0.31,
+      "true_negative": 216,
+      "false_positive": 19,
+      "false_negative": 18,
+      "true_positive": 19,
+      "n_test": 272
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "threshold": 0.43,
-      "true_negative": 708,
-      "false_positive": 60,
-      "false_negative": 46,
-      "true_positive": 166,
-      "n_test": 980
+      "threshold": 0.3,
+      "true_negative": 526,
+      "false_positive": 102,
+      "false_negative": 47,
+      "true_positive": 118,
+      "n_test": 793
     }
   ],
   "duplicate_summary": [
@@ -2261,332 +2201,152 @@
     {
       "scope": "Combined",
       "feature": "alcohol",
-      "gini": 0.208799,
-      "perm_mean": 0.136716,
-      "perm_std": 0.008999,
+      "gini": 0.201,
+      "perm_mean": 0.1381,
+      "perm_std": 0.0116,
       "gini_rank": 1,
       "perm_rank": 1,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "Combined",
       "feature": "density",
-      "gini": 0.113789,
-      "perm_mean": 0.02459,
-      "perm_std": 0.002642,
+      "gini": 0.12,
+      "perm_mean": 0.0232,
+      "perm_std": 0.0053,
       "gini_rank": 2,
       "perm_rank": 4,
-      "selected_top6": 1
-    },
-    {
-      "scope": "Combined",
-      "feature": "volatile acidity",
-      "gini": 0.098587,
-      "perm_mean": 0.034888,
-      "perm_std": 0.004416,
-      "gini_rank": 3,
-      "perm_rank": 2,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "Combined",
       "feature": "chlorides",
-      "gini": 0.086461,
-      "perm_mean": 0.027325,
-      "perm_std": 0.002128,
-      "gini_rank": 4,
+      "gini": 0.0886,
+      "perm_mean": 0.0269,
+      "perm_std": 0.0065,
+      "gini_rank": 3,
       "perm_rank": 3,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "Combined",
-      "feature": "residual sugar",
-      "gini": 0.078334,
-      "perm_mean": 0.018165,
-      "perm_std": 0.002391,
-      "gini_rank": 5,
-      "perm_rank": 8,
-      "selected_top6": 1
-    },
-    {
-      "scope": "Combined",
-      "feature": "citric acid",
-      "gini": 0.077833,
-      "perm_mean": 0.020807,
-      "perm_std": 0.003398,
-      "gini_rank": 6,
-      "perm_rank": 6,
-      "selected_top6": 1
+      "feature": "volatile acidity",
+      "gini": 0.0872,
+      "perm_mean": 0.035,
+      "perm_std": 0.0061,
+      "gini_rank": 4,
+      "perm_rank": 2,
+      "selected_top6": true
     },
     {
       "scope": "Combined",
       "feature": "total sulfur dioxide",
-      "gini": 0.07418,
-      "perm_mean": 0.017778,
-      "perm_std": 0.002589,
-      "gini_rank": 7,
+      "gini": 0.0842,
+      "perm_mean": 0.0141,
+      "perm_std": 0.0046,
+      "gini_rank": 5,
       "perm_rank": 9,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Combined",
-      "feature": "sulphates",
-      "gini": 0.069975,
-      "perm_mean": 0.01756,
-      "perm_std": 0.001772,
-      "gini_rank": 8,
-      "perm_rank": 10,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Combined",
-      "feature": "free sulfur dioxide",
-      "gini": 0.065977,
-      "perm_mean": 0.021148,
-      "perm_std": 0.003734,
-      "gini_rank": 9,
-      "perm_rank": 5,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Combined",
-      "feature": "pH",
-      "gini": 0.065573,
-      "perm_mean": 0.019701,
-      "perm_std": 0.002343,
-      "gini_rank": 10,
-      "perm_rank": 7,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Combined",
-      "feature": "fixed acidity",
-      "gini": 0.060493,
-      "perm_mean": 0.008136,
-      "perm_std": 0.001045,
-      "gini_rank": 11,
-      "perm_rank": 11,
-      "selected_top6": 0
+      "selected_top6": true
     },
     {
       "scope": "Red",
       "feature": "alcohol",
-      "gini": 0.25002,
-      "perm_mean": 0.097809,
-      "perm_std": 0.019941,
+      "gini": 0.2248,
+      "perm_mean": 0.1105,
+      "perm_std": 0.0259,
       "gini_rank": 1,
       "perm_rank": 1,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "Red",
       "feature": "sulphates",
-      "gini": 0.127259,
-      "perm_mean": 0.056754,
-      "perm_std": 0.009502,
+      "gini": 0.1408,
+      "perm_mean": 0.0702,
+      "perm_std": 0.018,
       "gini_rank": 2,
       "perm_rank": 2,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "Red",
       "feature": "volatile acidity",
-      "gini": 0.108076,
-      "perm_mean": 0.027512,
-      "perm_std": 0.005054,
+      "gini": 0.1071,
+      "perm_mean": 0.0201,
+      "perm_std": 0.0075,
       "gini_rank": 3,
       "perm_rank": 3,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "Red",
       "feature": "citric acid",
-      "gini": 0.090656,
-      "perm_mean": 0.006943,
-      "perm_std": 0.004007,
+      "gini": 0.0987,
+      "perm_mean": 0.0066,
+      "perm_std": 0.0082,
       "gini_rank": 4,
       "perm_rank": 7,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "Red",
       "feature": "total sulfur dioxide",
-      "gini": 0.077261,
-      "perm_mean": 0.015272,
-      "perm_std": 0.007762,
+      "gini": 0.0774,
+      "perm_mean": 0.0022,
+      "perm_std": 0.0078,
       "gini_rank": 5,
-      "perm_rank": 4,
-      "selected_top6": 1
-    },
-    {
-      "scope": "Red",
-      "feature": "density",
-      "gini": 0.07302,
-      "perm_mean": 0.003786,
-      "perm_std": 0.005362,
-      "gini_rank": 6,
-      "perm_rank": 9,
-      "selected_top6": 1
-    },
-    {
-      "scope": "Red",
-      "feature": "chlorides",
-      "gini": 0.067601,
-      "perm_mean": 0.006498,
-      "perm_std": 0.004447,
-      "gini_rank": 7,
-      "perm_rank": 8,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Red",
-      "feature": "fixed acidity",
-      "gini": 0.061643,
-      "perm_mean": 0.013425,
-      "perm_std": 0.00195,
-      "gini_rank": 8,
       "perm_rank": 5,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Red",
-      "feature": "pH",
-      "gini": 0.054238,
-      "perm_mean": 0.001049,
-      "perm_std": 0.00299,
-      "gini_rank": 9,
-      "perm_rank": 11,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Red",
-      "feature": "residual sugar",
-      "gini": 0.047891,
-      "perm_mean": 0.002166,
-      "perm_std": 0.002481,
-      "gini_rank": 10,
-      "perm_rank": 10,
-      "selected_top6": 0
-    },
-    {
-      "scope": "Red",
-      "feature": "free sulfur dioxide",
-      "gini": 0.042336,
-      "perm_mean": 0.008488,
-      "perm_std": 0.001357,
-      "gini_rank": 11,
-      "perm_rank": 6,
-      "selected_top6": 0
+      "selected_top6": true
     },
     {
       "scope": "White",
       "feature": "alcohol",
-      "gini": 0.185774,
-      "perm_mean": 0.145507,
-      "perm_std": 0.022882,
+      "gini": 0.1888,
+      "perm_mean": 0.1231,
+      "perm_std": 0.0118,
       "gini_rank": 1,
       "perm_rank": 1,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "White",
       "feature": "density",
-      "gini": 0.126297,
-      "perm_mean": 0.029896,
-      "perm_std": 0.006293,
+      "gini": 0.1306,
+      "perm_mean": 0.0211,
+      "perm_std": 0.0071,
       "gini_rank": 2,
       "perm_rank": 3,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "White",
       "feature": "chlorides",
-      "gini": 0.094276,
-      "perm_mean": 0.028392,
-      "perm_std": 0.004469,
+      "gini": 0.0924,
+      "perm_mean": 0.0151,
+      "perm_std": 0.0045,
       "gini_rank": 3,
       "perm_rank": 5,
-      "selected_top6": 1
-    },
-    {
-      "scope": "White",
-      "feature": "volatile acidity",
-      "gini": 0.094236,
-      "perm_mean": 0.035854,
-      "perm_std": 0.002793,
-      "gini_rank": 4,
-      "perm_rank": 2,
-      "selected_top6": 1
-    },
-    {
-      "scope": "White",
-      "feature": "residual sugar",
-      "gini": 0.080331,
-      "perm_mean": 0.029821,
-      "perm_std": 0.002546,
-      "gini_rank": 5,
-      "perm_rank": 4,
-      "selected_top6": 1
-    },
-    {
-      "scope": "White",
-      "feature": "pH",
-      "gini": 0.079649,
-      "perm_mean": 0.021543,
-      "perm_std": 0.001911,
-      "gini_rank": 6,
-      "perm_rank": 8,
-      "selected_top6": 1
+      "selected_top6": true
     },
     {
       "scope": "White",
       "feature": "total sulfur dioxide",
-      "gini": 0.07768,
-      "perm_mean": 0.02293,
-      "perm_std": 0.002447,
-      "gini_rank": 7,
+      "gini": 0.087,
+      "perm_mean": 0.0153,
+      "perm_std": 0.0037,
+      "gini_rank": 4,
       "perm_rank": 6,
-      "selected_top6": 0
+      "selected_top6": true
     },
     {
       "scope": "White",
-      "feature": "free sulfur dioxide",
-      "gini": 0.07609,
-      "perm_mean": 0.022747,
-      "perm_std": 0.003434,
-      "gini_rank": 8,
-      "perm_rank": 7,
-      "selected_top6": 0
-    },
-    {
-      "scope": "White",
-      "feature": "citric acid",
-      "gini": 0.064674,
-      "perm_mean": 0.015906,
-      "perm_std": 0.001949,
-      "gini_rank": 9,
-      "perm_rank": 9,
-      "selected_top6": 0
-    },
-    {
-      "scope": "White",
-      "feature": "fixed acidity",
-      "gini": 0.062569,
-      "perm_mean": 0.013527,
-      "perm_std": 0.002158,
-      "gini_rank": 10,
-      "perm_rank": 10,
-      "selected_top6": 0
-    },
-    {
-      "scope": "White",
-      "feature": "sulphates",
-      "gini": 0.058424,
-      "perm_mean": 0.010473,
-      "perm_std": 0.001173,
-      "gini_rank": 11,
-      "perm_rank": 11,
-      "selected_top6": 0
+      "feature": "volatile acidity",
+      "gini": 0.0786,
+      "perm_mean": 0.0238,
+      "perm_std": 0.006,
+      "gini_rank": 5,
+      "perm_rank": 2,
+      "selected_top6": true
     }
   ],
   "rf_model_comparison": [
@@ -2594,209 +2354,245 @@
       "scope": "Combined",
       "model": "M1_Baseline",
       "threshold": 0.5,
-      "accuracy": 0.888462,
-      "precision": 0.80663,
-      "recall": 0.570312,
-      "f1": 0.668192,
-      "f1_macro": 0.800578,
-      "roc_auc": 0.914253
+      "accuracy": 0.8449,
+      "balanced_acc": 0.6579,
+      "precision": 0.6729,
+      "recall": 0.3564,
+      "specificity": 0.9594,
+      "f1": 0.466,
+      "f1_macro": 0.6877,
+      "mcc": 0.4118,
+      "roc_auc": 0.8709,
+      "pr_auc": 0.6139
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "threshold": 0.5,
-      "accuracy": 0.887692,
-      "precision": 0.757009,
-      "recall": 0.632812,
-      "f1": 0.689362,
-      "f1_macro": 0.810409,
-      "roc_auc": 0.906822
+      "accuracy": 0.8421,
+      "balanced_acc": 0.6391,
+      "precision": 0.6848,
+      "recall": 0.3119,
+      "specificity": 0.9664,
+      "f1": 0.4286,
+      "f1_macro": 0.6685,
+      "mcc": 0.3883,
+      "roc_auc": 0.877,
+      "pr_auc": 0.6295
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
-      "threshold": 0.41,
-      "accuracy": 0.864615,
-      "precision": 0.645985,
-      "recall": 0.691406,
-      "f1": 0.667925,
-      "f1_macro": 0.79145,
-      "roc_auc": 0.906822
+      "threshold": 0.33,
+      "accuracy": 0.843,
+      "balanced_acc": 0.7629,
+      "precision": 0.5792,
+      "recall": 0.6337,
+      "specificity": 0.8921,
+      "f1": 0.6052,
+      "f1_macro": 0.7536,
+      "mcc": 0.5083,
+      "roc_auc": 0.877,
+      "pr_auc": 0.6295
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
       "threshold": 0.5,
-      "accuracy": 0.94375,
-      "precision": 0.931034,
-      "recall": 0.627907,
-      "f1": 0.75,
-      "f1_macro": 0.859155,
-      "roc_auc": 0.951851
+      "accuracy": 0.8934,
+      "balanced_acc": 0.665,
+      "precision": 0.7222,
+      "recall": 0.3514,
+      "specificity": 0.9787,
+      "f1": 0.4727,
+      "f1_macro": 0.7067,
+      "mcc": 0.4552,
+      "roc_auc": 0.8743,
+      "pr_auc": 0.5969
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "threshold": 0.5,
-      "accuracy": 0.940625,
-      "precision": 0.852941,
-      "recall": 0.674419,
-      "f1": 0.753247,
-      "f1_macro": 0.859749,
-      "roc_auc": 0.943749
+      "accuracy": 0.886,
+      "balanced_acc": 0.638,
+      "precision": 0.6875,
+      "recall": 0.2973,
+      "specificity": 0.9787,
+      "f1": 0.4151,
+      "f1_macro": 0.676,
+      "mcc": 0.4022,
+      "roc_auc": 0.8761,
+      "pr_auc": 0.5765
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
-      "threshold": 0.32,
-      "accuracy": 0.921875,
-      "precision": 0.695652,
-      "recall": 0.744186,
-      "f1": 0.719101,
-      "f1_macro": 0.836865,
-      "roc_auc": 0.943749
+      "threshold": 0.31,
+      "accuracy": 0.864,
+      "balanced_acc": 0.7163,
+      "precision": 0.5,
+      "recall": 0.5135,
+      "specificity": 0.9191,
+      "f1": 0.5067,
+      "f1_macro": 0.7139,
+      "mcc": 0.4278,
+      "roc_auc": 0.8761,
+      "pr_auc": 0.5765
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
       "threshold": 0.5,
-      "accuracy": 0.890816,
-      "precision": 0.826087,
-      "recall": 0.627358,
-      "f1": 0.713137,
-      "f1_macro": 0.822857,
-      "roc_auc": 0.927575
+      "accuracy": 0.8348,
+      "balanced_acc": 0.6656,
+      "precision": 0.6889,
+      "recall": 0.3758,
+      "specificity": 0.9554,
+      "f1": 0.4863,
+      "f1_macro": 0.6939,
+      "mcc": 0.4238,
+      "roc_auc": 0.8526,
+      "pr_auc": 0.6258
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "threshold": 0.5,
-      "accuracy": 0.883673,
-      "precision": 0.766304,
-      "recall": 0.665094,
-      "f1": 0.712121,
-      "f1_macro": 0.819616,
-      "roc_auc": 0.925486
+      "accuracy": 0.826,
+      "balanced_acc": 0.6511,
+      "precision": 0.6517,
+      "recall": 0.3515,
+      "specificity": 0.9506,
+      "f1": 0.4567,
+      "f1_macro": 0.6765,
+      "mcc": 0.3886,
+      "roc_auc": 0.8595,
+      "pr_auc": 0.6283
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "threshold": 0.43,
-      "accuracy": 0.891837,
-      "precision": 0.734513,
-      "recall": 0.783019,
-      "f1": 0.757991,
-      "f1_macro": 0.844173,
-      "roc_auc": 0.925486
+      "threshold": 0.3,
+      "accuracy": 0.8121,
+      "balanced_acc": 0.7764,
+      "precision": 0.5364,
+      "recall": 0.7152,
+      "specificity": 0.8376,
+      "f1": 0.613,
+      "f1_macro": 0.7445,
+      "mcc": 0.5011,
+      "roc_auc": 0.8595,
+      "pr_auc": 0.6283
     }
   ],
   "roc_curves": [
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.007812
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.03125
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.039062
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.050781
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.070312
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.078125
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.09375
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.101562
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.105469
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.125
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.140625
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.148438
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.164062
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.167969
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.175781
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.1875
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.203125
     },
     {
@@ -3583,36 +3379,36 @@
       "scope": "Combined",
       "model": "M1_Baseline",
       "fpr": 0.878352,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M1_Baseline",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.007812
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.058594
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.082031
     },
     {
@@ -4411,108 +4207,108 @@
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.772989,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.777778,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.781609,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.788314,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.833333,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.861111,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.883142,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.888889,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.915709,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.925287,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.941571,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.951149,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.956897,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.007812
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.058594
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.082031
     },
     {
@@ -5311,150 +5107,150 @@
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.772989,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.777778,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.781609,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.788314,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.833333,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.861111,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.883142,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.888889,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.915709,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.925287,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.941571,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.951149,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.956897,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Combined",
       "model": "M3_ThresholdOptimized",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.069767
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.093023
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.139535
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.186047
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.232558
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.418605
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.465116
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.534884
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.581395
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.627907
     },
     {
@@ -5737,54 +5533,54 @@
       "scope": "Red",
       "model": "M1_Baseline",
       "fpr": 0.613718,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
       "fpr": 0.65343,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
       "fpr": 0.743682,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
       "fpr": 0.880866,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M1_Baseline",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.023256
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.069767
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.511628
     },
     {
@@ -5989,150 +5785,150 @@
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.462094,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.505415,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.512635,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.624549,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.631769,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.67148,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.6787,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.700361,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.707581,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.725632,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.732852,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.740072,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.747292,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.812274,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.819495,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.830325,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.859206,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.884477,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.891697,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.906137,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.023256
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.069767
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.511628
     },
     {
@@ -6337,282 +6133,282 @@
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.462094,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.505415,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.512635,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.624549,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.631769,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.67148,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.6787,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.700361,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.707581,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.725632,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.732852,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.740072,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.747292,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.812274,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.819495,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.830325,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.859206,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.884477,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.891697,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.906137,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "Red",
       "model": "M3_ThresholdOptimized",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.009434
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.028302
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.037736
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.04717
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.066038
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.089623
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.108491
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.117925
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.127358
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.141509
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.146226
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.15566
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.160377
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.169811
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.174528
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.193396
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.198113
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.216981
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.221698
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.240566
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.259434
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.268868
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.287736
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.311321
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.325472
     },
     {
@@ -7333,72 +7129,72 @@
       "scope": "White",
       "model": "M1_Baseline",
       "fpr": 0.744792,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
       "fpr": 0.783854,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
       "fpr": 0.834635,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
       "fpr": 0.894531,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M1_Baseline",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.009434
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.028302
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.061321
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.070755
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.113208
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.122642
     },
     {
@@ -8131,174 +7927,174 @@
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.657552,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.658854,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.682292,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.686198,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.688802,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.714844,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.769531,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.783854,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.786458,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.807292,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.864583,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.865885,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.878906,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.882812,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.924479,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.929688,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.933594,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.941406,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.94401,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.955729,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
       "fpr": 0.963542,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M2_Tuned_CostSensitive",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
-      "tpr": 0.0
+      "fpr": 0,
+      "tpr": 0
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.009434
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.028302
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.061321
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.070755
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.113208
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 0.0,
+      "fpr": 0,
       "tpr": 0.122642
     },
     {
@@ -9031,162 +8827,162 @@
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.657552,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.658854,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.682292,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.686198,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.688802,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.714844,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.769531,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.783854,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.786458,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.807292,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.864583,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.865885,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.878906,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.882812,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.924479,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.929688,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.933594,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.941406,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.94401,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.955729,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
       "fpr": 0.963542,
-      "tpr": 1.0
+      "tpr": 1
     },
     {
       "scope": "White",
       "model": "M3_ThresholdOptimized",
-      "fpr": 1.0,
-      "tpr": 1.0
+      "fpr": 1,
+      "tpr": 1
     }
   ],
   "target_distribution": [
     {
       "scope": "Combined",
-      "n_rows": 6497,
-      "tier_low": 2384,
-      "tier_med": 2836,
-      "tier_high": 1277,
-      "quality_high_n": 1277,
-      "quality_high_pct": 19.655225
+      "n_rows": 5320,
+      "tier_low": 236,
+      "tier_med": 4075,
+      "tier_high": 1009,
+      "quality_high_n": 1009,
+      "quality_high_pct": 18.966165
     },
     {
       "scope": "Red",
-      "n_rows": 1599,
-      "tier_low": 744,
-      "tier_med": 638,
-      "tier_high": 217,
-      "quality_high_n": 217,
-      "quality_high_pct": 13.570982
+      "n_rows": 1359,
+      "tier_low": 63,
+      "tier_med": 1112,
+      "tier_high": 184,
+      "quality_high_n": 184,
+      "quality_high_pct": 13.539367
     },
     {
       "scope": "White",
-      "n_rows": 4898,
-      "tier_low": 1640,
-      "tier_med": 2198,
-      "tier_high": 1060,
-      "quality_high_n": 1060,
-      "quality_high_pct": 21.641486
+      "n_rows": 3961,
+      "tier_low": 173,
+      "tier_med": 2963,
+      "tier_high": 825,
+      "quality_high_n": 825,
+      "quality_high_pct": 20.828074
     }
   ],
   "top_wine_association_rules": [
@@ -9605,7 +9401,7 @@
       "antecedent_support": 0.06724,
       "consequent_support": 0.455825,
       "support_test": 0.059375,
-      "confidence_test": 1.0,
+      "confidence_test": 1,
       "lift_test": 1.987578,
       "holdout_pass": 1,
       "rank": 1
@@ -10095,34 +9891,31 @@
     }
   ],
   "metadata": {
-    "generated_at": "2026-11-17 07:45 UTC",
-    "runtime_seconds": 46.0,
+    "generated_at": "Tugas_ML_Random_Forest_Kelompok_6.ipynb",
+    "runtime_seconds": 46,
     "seed": 42,
     "test_size": 0.2,
     "top_features": {
       "Combined": [
         "alcohol",
         "density",
-        "volatile acidity",
         "chlorides",
-        "residual sugar",
-        "citric acid"
+        "volatile acidity",
+        "total sulfur dioxide"
       ],
       "Red": [
         "alcohol",
         "sulphates",
         "volatile acidity",
         "citric acid",
-        "total sulfur dioxide",
-        "density"
+        "total sulfur dioxide"
       ],
       "White": [
         "alcohol",
         "density",
         "chlorides",
-        "volatile acidity",
-        "residual sugar",
-        "pH"
+        "total sulfur dioxide",
+        "volatile acidity"
       ]
     },
     "miner": "auto",
@@ -10132,7 +9925,7 @@
         "consequent": "Quality=High",
         "min_support": 0.025,
         "min_confidence": 0.5,
-        "min_lift": 2.0
+        "min_lift": 2
       },
       {
         "consequent": "Quality=Low",

@@ -20,11 +20,15 @@ export interface RFModelMetric {
   model: string;
   threshold: number;
   accuracy: number;
+  balanced_acc: number;
   precision: number;
   recall: number;
+  specificity: number;
   f1: number;
   f1_macro: number;
+  mcc: number;
   roc_auc: number;
+  pr_auc: number;
 }
 
 export interface FeatureImportance {
