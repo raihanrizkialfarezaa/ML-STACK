@@ -131,6 +131,19 @@ export default function SinglePageMonograph() {
                 <span className="text-neutral-600">§9.</span> Script Python &amp; Google Colab
               </a>
             </div>
+
+            {/* Quick Keyboard Shortcut Bar */}
+            <div className="mt-4 flex flex-wrap items-center justify-between gap-2 rounded border border-neutral-800 bg-neutral-950 px-3.5 py-2 font-mono text-xs text-neutral-400">
+              <div className="flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-white animate-pulse" />
+                <span className="text-neutral-300 font-semibold">Pintasan Keyboard (Shortcuts):</span>
+                <span>Tekan angka <kbd className="rounded bg-neutral-900 border border-neutral-700 px-1.5 py-0.5 text-white font-bold">1</kbd> s/d <kbd className="rounded bg-neutral-900 border border-neutral-700 px-1.5 py-0.5 text-white font-bold">9</kbd> untuk lompat instan</span>
+              </div>
+              <div className="flex items-center gap-3 text-[11px] text-neutral-500">
+                <span><kbd className="rounded bg-neutral-900 border border-neutral-800 px-1 text-neutral-300">K</kbd> / <kbd className="rounded bg-neutral-900 border border-neutral-800 px-1 text-neutral-300">⌘K</kbd> Cari Topik</span>
+                <span><kbd className="rounded bg-neutral-900 border border-neutral-800 px-1 text-neutral-300">T</kbd> Ke Atas</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
