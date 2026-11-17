@@ -24,7 +24,7 @@ export function MathView({ math, block = false, className = "" }: MathViewProps)
   if (block) {
     return (
       <div
-        className={`my-3 overflow-x-auto py-2 text-slate-100 ${className}`}
+        className={`my-3 overflow-x-auto rounded border border-neutral-800 bg-neutral-950/80 px-4 py-3 text-center text-white font-mono text-sm sm:text-base ${className}`}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );
@@ -32,7 +32,7 @@ export function MathView({ math, block = false, className = "" }: MathViewProps)
 
   return (
     <span
-      className={`inline-block text-slate-100 ${className}`}
+      className={`inline-block text-white font-mono ${className}`}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

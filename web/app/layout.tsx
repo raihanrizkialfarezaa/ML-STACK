@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wine Quality Hybrid AI: Random Forest & Association Rule Mining",
+  title: "Random Forest Wine Quality: Monograf Teknis & Bedah Matematis",
   description:
-    "Eksplorasi interaktif hybrid data mining pada dataset UCI Wine Quality menggabungkan algoritma Random Forest (Bagging) dan Association Rule Mining (FP-Growth).",
+    "Dokumentasi komprehensif implementasi algoritma Random Forest (Bagging Ensemble) pada dataset UCI Wine Quality (N = 6.497). Bebas kebocoran data dengan bedah hitungan matematis lengkap.",
 };
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100">
+      <body className="min-h-full flex flex-col bg-black text-neutral-200">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
