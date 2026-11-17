@@ -124,8 +124,11 @@ export default function SinglePageMonograph() {
               <a href="#dashboard" className="hover:text-white transition-colors flex items-center gap-1.5">
                 <span className="text-neutral-600">§7.</span> Dashboard 4-Panel Publikasi
               </a>
+              <a href="#bedah-kode" className="hover:text-white transition-colors flex items-center gap-1.5">
+                <span className="text-neutral-600">§8.</span> Bedah Kode Pipeline Python
+              </a>
               <a href="#colab-script" className="hover:text-white transition-colors flex items-center gap-1.5">
-                <span className="text-neutral-600">§8.</span> Script Python &amp; Google Colab
+                <span className="text-neutral-600">§9.</span> Script Python &amp; Google Colab
               </a>
             </div>
           </div>
@@ -1464,16 +1467,450 @@ export default function SinglePageMonograph() {
         </section>
 
         {/* ==================================================================== */}
-        {/* BAGIAN 8: SKRIP PYTHON & GOOGLE COLAB REPRODUCIBILITY */}
+        {/* BAGIAN 8: BEDAH KODE PIPELINE PYTHON LINE-BY-LINE */}
+        {/* ==================================================================== */}
+        <section id="bedah-kode" className="scroll-mt-20 border-t border-neutral-900 pt-12">
+          <div className="flex items-center gap-2 font-mono text-xs text-neutral-500 uppercase tracking-widest">
+            <span>Bagian 08</span>
+            <span>/</span>
+            <span>Anatomi Kode Python</span>
+          </div>
+          <h2 className="mt-2 font-serif text-2xl sm:text-3xl font-normal text-white">
+            8. Bedah Kode Pipeline Python: Anatomi Baris-demi-Baris yang Mudah Dipahami
+          </h2>
+          <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
+            Skrip <code>random_forest_colab.py</code> (480 baris) dirancang mandiri tanpa dependensi rumit, menerapkan standar teknik <em>reproducible data science</em> tingkat industri, serta bebas dari kebocoran data (<em>zero data leakage</em>). Di bawah ini kami bedah 6 modul utamanya baris demi baris dengan bahasa yang lugas dan sangat mudah dipahami.
+          </p>
+
+          {/* Infographic 6 Modules */}
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 font-mono text-xs text-center">
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-3">
+              <div className="text-neutral-500 text-[10px]">MODUL 01</div>
+              <div className="font-bold text-white mt-1">Konfigurasi</div>
+              <div className="text-[10px] text-neutral-500 mt-0.5">Seed 42 &amp; Parameter</div>
+            </div>
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-3">
+              <div className="text-neutral-500 text-[10px]">MODUL 02</div>
+              <div className="font-bold text-white mt-1">Auto-Download</div>
+              <div className="text-[10px] text-neutral-500 mt-0.5">UCI Ingestion &amp; Prep</div>
+            </div>
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-3">
+              <div className="text-neutral-500 text-[10px]">MODUL 03</div>
+              <div className="font-bold text-white mt-1">Stratified Split</div>
+              <div className="text-[10px] text-neutral-500 mt-0.5">80/20 Anti-Bocor</div>
+            </div>
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-3">
+              <div className="text-neutral-500 text-[10px]">MODUL 04</div>
+              <div className="font-bold text-white mt-1">3 Arsitektur RF</div>
+              <div className="text-[10px] text-neutral-500 mt-0.5">M1, M2, dan M3</div>
+            </div>
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-3">
+              <div className="text-neutral-500 text-[10px]">MODUL 05</div>
+              <div className="font-bold text-white mt-1">OOF Tuning</div>
+              <div className="text-[10px] text-neutral-500 mt-0.5">5-Fold Thresholding</div>
+            </div>
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-3">
+              <div className="text-neutral-500 text-[10px]">MODUL 06</div>
+              <div className="font-bold text-white mt-1">Visualisasi 4-P</div>
+              <div className="text-[10px] text-neutral-500 mt-0.5">300 DPI Dashboard</div>
+            </div>
+          </div>
+
+          <div className="mt-10 space-y-12 text-sm leading-relaxed text-neutral-300">
+            {/* -------------------------------------------------------------- */}
+            {/* MODUL 1: KONFIGURASI GLOBAL & REPRODUSIBILITAS */}
+            {/* -------------------------------------------------------------- */}
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
+              <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
+                <h3 className="text-base font-semibold text-white flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-800 font-mono text-[11px] text-white">
+                    1
+                  </span>
+                  <span>Modul 1: Konfigurasi Parameter Global &amp; Benih Acak (Reproducibility)</span>
+                </h3>
+                <span className="font-mono text-xs text-neutral-500">Baris 55 – 85</span>
+              </div>
+
+              <p className="text-xs text-neutral-400 mb-3">
+                Sebelum algoritma dijalankan, seluruh konstanta penting dikumpulkan di bagian atas agar kode bersifat fleksibel dan hasilnya dapat direproduksi 100% identik di komputer mana pun:
+              </p>
+
+              <div className="rounded border border-neutral-800 bg-black p-4 font-mono text-xs text-neutral-300 overflow-x-auto my-3">
+                <pre><code>{`# Konfigurasi Eksperimen
+SEED = 42
+TEST_SIZE = 0.20
+HIGH_QUALITY_THRESHOLD = 7  # Nilai >= 7 diklasifikasikan sebagai Premium (1)
+PERMUTATION_REPEATS = 10
+
+FEATURES = [
+    "fixed acidity", "volatile acidity", "citric acid", "residual sugar",
+    "chlorides", "free sulfur dioxide", "total sulfur dioxide", "density",
+    "pH", "sulphates", "alcohol",
+]
+
+UCI_URLS = {
+    "winequality-red.csv": "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv",
+    "winequality-white.csv": "https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv",
+}`}</code></pre>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded bg-black p-3.5 border border-neutral-900">
+                  <div className="font-bold text-white mb-1">🔍 Bedah Makna &amp; Alasan di Balik Baris Kode:</div>
+                  <ul className="list-disc list-inside space-y-1.5 text-neutral-300">
+                    <li>
+                      <code className="text-white">SEED = 42</code>: Angka sakti generator angka acak (*pseudo-random generator*). Dalam Random Forest terjadi banyak pengacakan (pemilihan baris bootstrap dan fitur cabang). Mengunci benih ke 42 memastikan siapapun yang menjalankan skrip ini di Colab atau laptop sendiri akan memperoleh akurasi, F1, dan ROC-AUC yang sama persis hingga digit desimal terakhir.
+                    </li>
+                    <li>
+                      <code className="text-white">TEST_SIZE = 0.20</code>: Pembagian proporsional 80% data untuk latihan belajar model (*training*) dan 20% dikunci rapat sebagai data ujian murni (*holdout test*).
+                    </li>
+                    <li>
+                      <code className="text-white">HIGH_QUALITY_THRESHOLD = 7</code>: Mengonversi skor subjektif juri manusia (skala 0–10) menjadi target biner objektif bernilai bisnis: nilai 7, 8, dan 9 diklasifikasikan sebagai <strong>Premium (1)</strong>, sedangkan nilai 3, 4, 5, dan 6 adalah <strong>Reguler (0)</strong>.
+                    </li>
+                    <li>
+                      <code className="text-white">PERMUTATION_REPEATS = 10</code>: Menentukan berapa kali nilai sebuah variabel diacak-acak untuk menguji apakah model benar-benar bergantung pada zat tersebut atau hanya kebetulan statistik belaka.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------------- */}
+            {/* MODUL 2: AUTO-DOWNLOAD & PREPROCESSING TANPA BOCOR */}
+            {/* -------------------------------------------------------------- */}
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
+              <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
+                <h3 className="text-base font-semibold text-white flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-800 font-mono text-[11px] text-white">
+                    2
+                  </span>
+                  <span>Modul 2: Pemasukan Data Otomatis &amp; Validasi Integritas Dataset UCI</span>
+                </h3>
+                <span className="font-mono text-xs text-neutral-500">Baris 88 – 147</span>
+              </div>
+
+              <p className="text-xs text-neutral-400 mb-3">
+                Fungsi <code>download_file()</code> dan <code>load_dataset()</code> menangani proses pengambilan data mentah dari internet tanpa mengharuskan pengguna mengunggah file CSV secara manual:
+              </p>
+
+              <div className="rounded border border-neutral-800 bg-black p-4 font-mono text-xs text-neutral-300 overflow-x-auto my-3">
+                <pre><code>{`def load_dataset() -> pd.DataFrame:
+    # 1. Cari file lokal, jika belum ada otomatis unduh dari URL resmi UCI
+    ...
+    # 2. Baca file CSV (Gunakan delimiter titik koma ';')
+    df_red = pd.read_csv(data_paths["winequality-red.csv"], sep=";")
+    df_white = pd.read_csv(data_paths["winequality-white.csv"], sep=";")
+
+    # 3. Bersihkan spasi dan tanda kutip ganda pada nama kolom
+    df_red.columns = [c.strip().strip('"') for c in df_red.columns]
+    df_white.columns = [c.strip().strip('"') for c in df_white.columns]
+
+    # 4. Beri identitas tipe wine (0 = Red, 1 = White)
+    df_red["wine_type"] = 0
+    df_white["wine_type"] = 1
+
+    # 5. Gabungkan menjadi scope Combined
+    df = pd.concat([df_red, df_white], ignore_index=True)
+
+    # 6. Target Engineering: Biner Kualitas Tinggi (1) vs Biasa (0)
+    df["high_quality"] = (df["quality"] >= HIGH_QUALITY_THRESHOLD).astype(int)
+    return df`}</code></pre>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded bg-black p-3.5 border border-neutral-900">
+                  <div className="font-bold text-white mb-1">🔍 Mengapa Kode Dibuat Seperti Ini?</div>
+                  <ul className="list-disc list-inside space-y-1.5 text-neutral-300">
+                    <li>
+                      <strong>Mengapa delimiter titik-koma (<code className="text-white">sep=&quot;;&quot;</code>)?</strong> Dataset UCI Wine Quality berasal dari Portugal (Eropa), di mana standar format angka sering memakai koma desimal, sehingga pemisah antarkolom menggunakan titik-koma. Jika memakai <code>pd.read_csv()</code> default (koma), Python akan gagal membaca dan menghasilkan 1 kolom raksasa yang rusak.
+                    </li>
+                    <li>
+                      <strong>Pemberian Kolom <code className="text-white">wine_type</code>:</strong> Menambahkan kolom tipe wine sebelum penggabungan sangat krusial agar model scope gabungan (*Combined*) tetap mengetahui apakah anggur tersebut merah atau putih, mencegah bias Simpson&apos;s Paradox.
+                    </li>
+                    <li>
+                      <strong>Validasi Ketat Tipe Data:</strong> Dilakukan konversi paksa <code className="text-white">pd.to_numeric(errors=&quot;raise&quot;)</code> untuk memastikan tidak ada teks liar atau nilai hilang yang tersembunyi.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------------- */}
+            {/* MODUL 3: STRATIFIED 80/20 SPLIT (ANTI DATA LEAKAGE) */}
+            {/* -------------------------------------------------------------- */}
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
+              <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
+                <h3 className="text-base font-semibold text-white flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-800 font-mono text-[11px] text-white">
+                    3
+                  </span>
+                  <span>Modul 3: Pembagian Data Terstratifikasi (Stratified 80/20 Holdout Split)</span>
+                </h3>
+                <span className="font-mono text-xs text-neutral-500">Baris 186 – 198</span>
+              </div>
+
+              <p className="text-xs text-neutral-400 mb-3">
+                Sebelum satu pohon pun mulai belajar, data dipisahkan dengan teknik stratifikasi ketat:
+              </p>
+
+              <div className="rounded border border-neutral-800 bg-black p-4 font-mono text-xs text-neutral-300 overflow-x-auto my-3">
+                <pre><code>{`X = df_scope[FEATURES]
+y = df_scope["high_quality"]
+
+# Stratified 80% Train / 20% Test Split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=TEST_SIZE, random_state=SEED, stratify=y
+)`}</code></pre>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded bg-black p-3.5 border border-neutral-900">
+                  <div className="font-bold text-white mb-1">🔍 Mengapa Parameter `stratify=y` adalah Harga Mati?</div>
+                  <p className="text-neutral-300">
+                    Di Red Wine, kelas premium hanya berjumlah <strong>13.57% (217 botol)</strong>. Jika kita membagi data secara acak biasa tanpa stratifikasi, ada kemungkinan besar botol premium menumpuk di data latih sementara data uji hanya kebagian sedikit sampel premium.
+                  </p>
+                  <p className="text-neutral-400 mt-1.5">
+                    Dengan <code className="text-white">stratify=y</code>, scikit-learn menjamin rasio 13.57% terjaga persis sama:
+                    <br />
+                    • Data Latih (80%): 174 botol premium dari total 1.279 botol (13.60%).
+                    <br />
+                    • Data Uji (20%): 43 botol premium dari total 320 botol (13.44%).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------------- */}
+            {/* MODUL 4: ARSITEKTUR 3 MODEL RANDOM FOREST */}
+            {/* -------------------------------------------------------------- */}
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
+              <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
+                <h3 className="text-base font-semibold text-white flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-800 font-mono text-[11px] text-white">
+                    4
+                  </span>
+                  <span>Modul 4: Arsitektur 3 Varian Model Random Forest (M1, M2, dan M3)</span>
+                </h3>
+                <span className="font-mono text-xs text-neutral-500">Baris 199 – 228</span>
+              </div>
+
+              <p className="text-xs text-neutral-400 mb-3">
+                Kami membangun dan membandingkan 3 tingkatan arsitektur Random Forest untuk membuktikan keunggulan teknik *cost-sensitive learning*:
+              </p>
+
+              <div className="rounded border border-neutral-800 bg-black p-4 font-mono text-xs text-neutral-300 overflow-x-auto my-3">
+                <pre><code>{`# Model 1: Baseline Default (200 Trees, Cutoff 0.50)
+m1_baseline = RandomForestClassifier(
+    n_estimators=200, random_state=SEED, n_jobs=-1
+)
+
+# Model 2: Cost-Sensitive Tuned (300 Trees, class_weight='balanced_subsample')
+m2_tuned = RandomForestClassifier(
+    n_estimators=300,
+    max_depth=16,
+    min_samples_split=4,
+    class_weight="balanced_subsample",  # Kunci penanganan data timpang tanpa SMOTE
+    random_state=SEED,
+    n_jobs=-1,
+)
+
+# Latih kedua model pada data latihan
+m1_baseline.fit(X_train, y_train)
+m2_tuned.fit(X_train, y_train)`}</code></pre>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded bg-black p-3.5 border border-neutral-900">
+                  <div className="font-bold text-white mb-1">🔍 Anatomi Parameter Model M2 (Pemenang Utama):</div>
+                  <ul className="list-disc list-inside space-y-1.5 text-neutral-300">
+                    <li>
+                      <code className="text-white">n_estimators=300</code>: Memperbanyak juri pohon dari 200 menjadi 300 untuk memperhalus estimasi probabilitas dan memperkecil varians prediksi ensemble.
+                    </li>
+                    <li>
+                      <code className="text-white">max_depth=16</code> &amp; <code className="text-white">min_samples_split=4</code>: Memberikan batas kedalaman pohon agar tidak menghafal derau pencilan (*noise*), menjaga kemampuan generalisasi pada data baru.
+                    </li>
+                    <li>
+                      <code className="text-white">class_weight=&quot;balanced_subsample&quot;</code>: Inilah senjata rahasia paling penting! Berbeda dari <code>balanced</code> biasa yang menghitung bobot sekali di awal, <code>balanced_subsample</code> menghitung ulang bobot denda secara dinamis di setiap kantong bootstrap pohon masing-masing. Pohon otomatis dikenai penalti <strong>6.35x lebih berat</strong> jika salah menebak botol premium. Dengan cara ini, ketimpangan kelas teratasi secara matematis tanpa merusak integritas biokimia asli dengan data sintetis fiktif (SMOTE).
+                    </li>
+                    <li>
+                      <code className="text-white">n_jobs=-1</code>: Memerintahkan komputer untuk menggunakan seluruh inti CPU (*multi-threading*) secara paralel, mempercepat proses latihan hingga 4x lipat.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------------- */}
+            {/* MODUL 5: OPTIMASI THRESHOLD OOF BEBAS BOCOR */}
+            {/* -------------------------------------------------------------- */}
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
+              <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
+                <h3 className="text-base font-semibold text-white flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-800 font-mono text-[11px] text-white">
+                    5
+                  </span>
+                  <span>Modul 5: Optimalisasi Ambang Batas OOF Bebas Bocor (Zero-Leakage OOF CV)</span>
+                </h3>
+                <span className="font-mono text-xs text-neutral-500">Baris 151 – 173</span>
+              </div>
+
+              <p className="text-xs text-neutral-400 mb-3">
+                Model M3 tidak melatih pohon baru, melainkan mengoptimalkan titik potong kelulusan probabilitas (<MathView math="\theta^*" />) menggunakan teknik <strong>5-Fold Out-Of-Fold Cross Validation</strong> murni di dalam data latihan:
+              </p>
+
+              <div className="rounded border border-neutral-800 bg-black p-4 font-mono text-xs text-neutral-300 overflow-x-auto my-3">
+                <pre><code>{`def optimize_threshold_oof(estimator, X_train, y_train, seed=SEED):
+    # 1. Bentuk 5 lipatan data latihan terstratifikasi
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)
+
+    # 2. Prediksi probabilitas murni Out-Of-Fold (tanpa menyentuh data test)
+    oof_proba = cross_val_predict(
+        clone(estimator), X_train, y_train, cv=cv, method="predict_proba", n_jobs=-1
+    )[:, 1]
+
+    # 3. Pindai rentang ambang batas dari 0.30 hingga 0.65 (langkah 0.01)
+    best_thresh, best_f1 = 0.50, -1.0
+    for thresh in [round(0.30 + 0.01 * i, 2) for i in range(36)]:
+        preds = (oof_proba >= thresh).astype(int)
+        score = f1_score(y_train, preds, zero_division=0)
+        if score > best_f1 + 1e-12:
+            best_thresh, best_f1 = thresh, score
+
+    return float(best_thresh), float(best_f1)`}</code></pre>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded bg-black p-3.5 border border-neutral-900">
+                  <div className="font-bold text-white mb-1">🔍 Mengapa Dilarang Keras Mencari Ambang Batas pada Data Uji?</div>
+                  <p className="text-neutral-300">
+                    Banyak pemula melakukan kesalahan fatal: menguji coba berbagai ambang batas langsung pada <code>X_test</code> lalu memilih angka dengan skor F1 tertinggi. Tindakan ini disebut <strong>Data Leakage (Kebocoran Informasi)</strong> dan merupakan pelanggaran metodologi data science.
+                  </p>
+                  <p className="text-neutral-400 mt-1.5">
+                    Fungsi di atas menjamin kejujuran 100%: <code>oof_proba</code> dihasilkan ketika sampel tersebut berada di luar lipatan pelatihan (*unseen fold*). Data uji <code>X_test</code> tetap terkunci rapat di dalam brankas dan hanya dibuka satu kali di akhir untuk validasi pembuktian.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------------- */}
+            {/* MODUL 6: DUAL IMPORTANCE & DASHBOARD 4-PANEL */}
+            {/* -------------------------------------------------------------- */}
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
+              <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
+                <h3 className="text-base font-semibold text-white flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-800 font-mono text-[11px] text-white">
+                    6
+                  </span>
+                  <span>Modul 6: Dual Feature Importance &amp; Pembuatan Dashboard Publikasi 300 DPI</span>
+                </h3>
+                <span className="font-mono text-xs text-neutral-500">Baris 263 – 449</span>
+              </div>
+
+              <p className="text-xs text-neutral-400 mb-3">
+                Modul terakhir mengevaluasi faktor kimia penentu kualitas dan merender grafik komprehensif ke dalam file gambar beresolusi tinggi:
+              </p>
+
+              <div className="rounded border border-neutral-800 bg-black p-4 font-mono text-xs text-neutral-300 overflow-x-auto my-3">
+                <pre><code>{`# 1. Dual Feature Importance: Gini (Internal Pohon) & Permutasi (Uji Kerusakan)
+perm = permutation_importance(
+    m2_tuned, X_test, y_test, scoring="roc_auc",
+    n_repeats=PERMUTATION_REPEATS, random_state=SEED, n_jobs=-1
+)
+
+# 2. Gambar 4-Panel Dashboard Menggunakan Matplotlib
+fig, axes = plt.subplots(2, 2, figsize=(18, 13), facecolor="white")
+# Panel A: Grouped Bar Feature Importance
+# Panel B: Multi-line ROC Curves (Combined vs Red vs White)
+# Panel C: 3 Mini Heatmap Confusion Matrix
+# Panel D: Perbandingan Barplot F1-Score
+
+# 3. Simpan dengan resolusi tinggi standar jurnal ilmiah (300 DPI)
+plt.savefig("wine_random_forest_dashboard.png", dpi=300, bbox_inches="tight")`}</code></pre>
+              </div>
+
+              <div className="space-y-3 text-xs">
+                <div className="rounded bg-black p-3.5 border border-neutral-900">
+                  <div className="font-bold text-white mb-1">🔍 Mengapa Perlu Dua Jenis Feature Importance?</div>
+                  <p className="text-neutral-300">
+                    <strong>Gini Importance</strong> mengukur akumulasi penurunan ketidakmurnian node saat pohon dilatih. Cepat dihitung, namun memiliki sedikit bias terhadap variabel kontinu dengan banyak variasi angka.
+                  </p>
+                  <p className="text-neutral-400 mt-1.5">
+                    Oleh karena itu, modul ini melengkapi dengan <strong>Permutation Importance</strong>: secara brutal mengacak urutan angka satu zat kimia (misal kadar alkohol diacak acak-kadut) lalu mengukur seberapa parah skor ROC-AUC anjlok. Jika skor langsung jatuh bebas, terbukti zat tersebut adalah pilar utama keputusan model!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* -------------------------------------------------------------- */}
+            {/* TABEL RINGKASAN BLUEPRINT FUNGSI TEKNIS */}
+            {/* -------------------------------------------------------------- */}
+            <div className="rounded border border-neutral-800 bg-neutral-950 p-6">
+              <div className="flex items-center justify-between border-b border-neutral-900 pb-3 mb-4">
+                <h3 className="text-base font-semibold text-white">
+                  Tabel Blueprint Fungsi Pipeline dalam Script Python
+                </h3>
+                <span className="font-mono text-xs text-neutral-500">Ringkasan API</span>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left font-mono text-xs text-neutral-400">
+                  <thead className="border-b border-neutral-800 bg-neutral-900 text-neutral-300">
+                    <tr>
+                      <th className="py-2.5 px-3">Nama Fungsi</th>
+                      <th className="py-2.5 px-3">Argumen Masukan</th>
+                      <th className="py-2.5 px-3">Keluaran (Return)</th>
+                      <th className="py-2.5 px-3">Tanggung Jawab Utama</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-neutral-900">
+                    <tr>
+                      <td className="py-2.5 px-3 text-white font-bold">download_file()</td>
+                      <td className="py-2.5 px-3">url, destination</td>
+                      <td className="py-2.5 px-3 text-neutral-500">None</td>
+                      <td className="py-2.5 px-3 font-sans">Mengunduh file CSV dari UCI Repository dengan header User-Agent browser.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 text-white font-bold">load_dataset()</td>
+                      <td className="py-2.5 px-3 text-neutral-500">None</td>
+                      <td className="py-2.5 px-3 text-white">pd.DataFrame (6.497 baris)</td>
+                      <td className="py-2.5 px-3 font-sans">Membaca Red &amp; White CSV, sanitasi kutip ganda, dan rekayasa target biner high_quality.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 text-white font-bold">optimize_threshold_oof()</td>
+                      <td className="py-2.5 px-3">estimator, X_train, y_train</td>
+                      <td className="py-2.5 px-3 text-white">best_thresh (float), best_f1</td>
+                      <td className="py-2.5 px-3 font-sans">Mencari ambang probabilitas optimal via 5-Fold OOF CV murni di data training.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 text-white font-bold">train_and_evaluate_scope()</td>
+                      <td className="py-2.5 px-3">scope_name, df_scope</td>
+                      <td className="py-2.5 px-3 text-white">dict (Metrics, Roc, Cm, FeatImp)</td>
+                      <td className="py-2.5 px-3 font-sans">Menjalankan pipeline utuh: 80/20 split, latih M1/M2/M3, evaluasi metrik, dan hitung feature importance.</td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 text-white font-bold">plot_publication_dashboard()</td>
+                      <td className="py-2.5 px-3">artifacts_all, output_path</td>
+                      <td className="py-2.5 px-3 text-neutral-500">None (Menyimpan file PNG)</td>
+                      <td className="py-2.5 px-3 font-sans">Menggambar 4 panel visualisasi beresolusi cetak 300 DPI siap publikasi jurnal.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ==================================================================== */}
+        {/* BAGIAN 9: SKRIP PYTHON & GOOGLE COLAB REPRODUCIBILITY */}
         {/* ==================================================================== */}
         <section id="colab-script" className="scroll-mt-20 border-t border-neutral-900 pt-12 pb-8">
           <div className="flex items-center gap-2 font-mono text-xs text-neutral-500 uppercase tracking-widest">
-            <span>Bagian 08</span>
+            <span>Bagian 09</span>
             <span>/</span>
             <span>Reproduksibilitas Kode</span>
           </div>
           <h2 className="mt-2 font-serif text-2xl sm:text-3xl font-normal text-white">
-            8. Skrip Python Mandiri &amp; Petunjuk Eksekusi Google Colab
+            9. Skrip Python Mandiri &amp; Petunjuk Eksekusi Google Colab
           </h2>
           <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
             Seluruh pipeline pelatihan, evaluasi, hingga pembuatan dashboard gambar telah dikemas ke dalam satu file mandiri <strong>`random_forest_colab.py`</strong> dan notebook <strong>`wine_quality_random_forest.ipynb`</strong>.

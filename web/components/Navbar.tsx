@@ -14,6 +14,8 @@ export function Navbar() {
     { name: "5. Bedah Hitungan", href: "#perhitungan" },
     { name: "6. Hasil Eksperimen", href: "#eksperimen" },
     { name: "7. Dashboard", href: "#dashboard" },
+    { name: "8. Bedah Kode", href: "#bedah-kode" },
+    { name: "9. Google Colab", href: "#colab-script" },
   ];
 
   return (
